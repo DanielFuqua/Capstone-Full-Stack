@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { PoseContext } from "../providers/PoseProvider";
 import Pose from "./Pose";
+import { Container, Row, Col } from 'reactstrap';
+
 
 const PoseList = () => {
 
@@ -9,20 +11,21 @@ const PoseList = () => {
     useEffect(() => {
         getAllPoses();
     }, []);
-    
-    console.log(poses)
 
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="cards-column">
+
+            <Container>
+                <Row>
                     {poses.map((pose) => (
-                        <Pose key={pose.id} pose={pose} />
+                        <Col sm="4">
+                            <Pose key={pose.id} pose={pose} />
+                        </Col>
                     ))}
-                </div>
-            </div>
-        </div>
+                </Row>
+            </Container>
+
     );
+
 };
 
 export default PoseList;
