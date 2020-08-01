@@ -1,38 +1,58 @@
-import React, { useEffect, useContext, useState} from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PoseContext } from "../providers/PoseProvider";
 import { InstructionContext } from "../providers/InstructionProvider";
+import { BenefitContext } from "../providers/BenefitProvider";
+import { NoteContext } from "../providers/NoteProvider";
 
 const PoseDetails = () => {
-    
-  const { id } = useParams();
-  const [pose, setPose] = useState({});
-  const { getPoseById } = useContext(PoseContext);
-  const { instructions, getInstructionsByPoseId } = useContext(InstructionContext)
+
+    const { id } = useParams();
+    const [pose, setPose] = useState({});
+    const { getPoseById } = useContext(PoseContext);
+    const { instructions, getInstructionsByPoseId } = useContext(InstructionContext);
+    const { benefits, getBenefitsByPoseId } = useContext(BenefitContext);
+    const { notes, getNotesByPoseId } = useContext(NoteContext);
 
 
-useEffect(() => {
-    console.log("its doing it")
-    getPoseById(parseInt(id)).then((pose) => {
-        setPose(pose);
-    });
-    getInstructionsByPoseId(parseInt(id));
-}, []);
+    useEffect(() => {
+        getPoseById(parseInt(id)).then((pose) => {
+            setPose(pose);
+        });
+        getInstructionsByPoseId(parseInt(id));
+        getBenefitsByPoseId(parseInt(id));
+        getNotesByPoseId(parseInt(id));
+    }, []);
 
 
-  return (
-<>
-    <div>
-        <p>{pose.nameEnglish}</p>
-        <p>{pose.nameSanskrit}</p>
-        <div><img src={pose.imageLocation}/></div>
-     
-  {instructions.map((inst) => <p>{inst.content}</p>)}
-    </div>
+    return (
+        <>
+            <div>
+                <p>{pose.nameEnglish}</p>
+                <p>{pose.nameSanskrit}</p>
+                <div>
+                    <img src={pose.imageLocation} />
+                </div>
+                <div>
+                    <h2>Instructions:</h2>
+                    {instructions.map((inst) => <p>{inst.content}</p>)}
+                </div>
+
+                <div>
+                    <h2>Benefits:</h2>
+                    {benefits.map((ben) => <p>{ben.content}</p>)}
+                </div>
+
+                <div>
+                    <h2>Notes:</h2>
+                    {notes.map((note) => <p>{note.content}</p>)}
+                </div>
+
+            </div>
 
 
 
-       {/* <div className="container">
+            {/* <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-lg-6">
                         <div><img src={post.imageLocation} className="post-details-image" /></div>
@@ -50,7 +70,7 @@ useEffect(() => {
                 </div>
                
             </div> */}
-</>
+        </>
     );
 };
 export default PoseDetails;

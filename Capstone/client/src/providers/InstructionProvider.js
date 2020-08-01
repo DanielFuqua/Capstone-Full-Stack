@@ -5,7 +5,6 @@ export const InstructionContext = React.createContext();
 
 export const InstructionProvider = (props) => {
 
-    const apiUrl = "/api/instruction";
     const [instructions, setInstructions] = useState([]);
 
     const { getToken } = useContext(UserProfileContext);

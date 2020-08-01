@@ -7,19 +7,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Tabloid.Repositories
 {
-    public class InstructionRepository
+    public class BenefitRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public InstructionRepository(ApplicationDbContext context)
+        public BenefitRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public List<Instruction> GetByPoseId(int id)
+        public List<Benefit> GetByPoseId(int id)
         {
-            return _context.Instruction.Where(i => i.PoseId == id)
-                                        .Include(i => i.Pose)
+            return _context.Benefit.Where(b => b.PoseId == id)
+                                        .Include(b => b.Pose)
                                         .ToList();
         }
 

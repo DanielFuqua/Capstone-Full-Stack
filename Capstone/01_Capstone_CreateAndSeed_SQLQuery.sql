@@ -142,6 +142,13 @@ VALUES
   (10, '8IqX56dMAXhbCAxaLHx2ewVEyao1', 'yinYogaAdam', 'yin@gmail.com', 1);
 SET IDENTITY_INSERT [UserProfile] OFF
 
+SET IDENTITY_INSERT [Note] ON
+INSERT INTO [Note]
+  ([Id], [PoseId], [UserProfileId], [Content], [CreateDateTime])
+VALUES
+  (1, 1, 1, 'I love this breathing exercise.', '2020-07-31 20:30:30');
+SET IDENTITY_INSERT [Note] OFF
+
 
 SET IDENTITY_INSERT [Pose] ON
 INSERT INTO [Pose]

@@ -9,25 +9,25 @@ namespace Tabloid.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InstructionController : ControllerBase
+    public class BenefitController : ControllerBase
     {
-        private readonly InstructionRepository _instructionRepository;
+        private readonly BenefitRepository _benefitRepository;
 
-        public InstructionController(ApplicationDbContext context)
+        public BenefitController(ApplicationDbContext context)
         {
-            _instructionRepository = new InstructionRepository(context);
+            _benefitRepository = new BenefitRepository(context);
         }
 
         [Authorize]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var instructions = _instructionRepository.GetByPoseId(id);
-            if (instructions == null)
+            var benefits = _benefitRepository.GetByPoseId(id);
+            if (benefits == null)
             {
                 return NotFound();
             }
-            return Ok(instructions);
+            return Ok(benefits);
         }
 
     }

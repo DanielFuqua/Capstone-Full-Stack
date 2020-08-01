@@ -5,6 +5,8 @@ import { UserProfileProvider } from "./providers/UserProfileProvider";
 import ApplicationViews from "./components/ApplicationViews";
 import { PoseProvider } from './providers/PoseProvider';
 import { InstructionProvider } from './providers/InstructionProvider';
+import { BenefitProvider } from './providers/BenefitProvider';
+import { NoteProvider } from './providers/NoteProvider';
 
 
 function App() {
@@ -13,7 +15,11 @@ function App() {
       <UserProfileProvider>
         <PoseProvider>
           <InstructionProvider>
-            <ApplicationViews />
+            <BenefitProvider>
+              <NoteProvider>
+                <ApplicationViews />
+              </NoteProvider>
+            </BenefitProvider>
           </InstructionProvider>
         </PoseProvider>
       </UserProfileProvider>
