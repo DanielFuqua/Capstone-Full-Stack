@@ -21,7 +21,7 @@ export const PoseProvider = (props) => {
 
     const getPoseById = (id) =>
         getToken().then((token) =>
-            fetch(apiUrl / `${id}`, {
+            fetch(`/api/pose/${id}`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,

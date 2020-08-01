@@ -23,7 +23,9 @@ namespace Tabloid.Repositories
 
         public List<Instruction> GetByPoseId(int id)
         {
-            return _context.Instruction.Where(i => i.PoseId == id).ToList();
+            return _context.Instruction.Where(i => i.PoseId == id)
+                                        .Include(i => i.Pose)
+                                        .ToList();
         }
 
 

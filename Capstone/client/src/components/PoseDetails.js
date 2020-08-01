@@ -1,22 +1,22 @@
 import React, { useEffect, useContext, useState} from "react";
-import { Button, Modal, ModalBody } from "reactstrap"
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { PoseContext } from "../providers/PoseProvider";
-
-
+import { InstructionContext } from "../providers/InstructionProvider";
 
 const PoseDetails = () => {
     
   const { id } = useParams();
-  const history = useHistory();
-  const [pose, setPose] = useState();
+  const [pose, setPose] = useState({});
   const { getPoseById } = useContext(PoseContext);
+  const { instructions, getInstructionsByPoseId } = useContext(InstructionContext)
 
 
 useEffect(() => {
-    getPoseById(id).then((pose) => {
+    console.log("its doing it")
+    getPoseById(parseInt(id)).then((pose) => {
         setPose(pose);
     });
+    getInstructionsByPoseId(parseInt(id));
 }, []);
 
 
@@ -25,12 +25,14 @@ useEffect(() => {
     <div>
         <p>{pose.nameEnglish}</p>
         <p>{pose.nameSanskrit}</p>
-        <img>{pose.imageLocation}</img>
+        <div><img src={pose.imageLocation}/></div>
+     
+  {instructions.map((inst) => <p>{inst.content}</p>)}
     </div>
 
 
 
-       <div className="container">
+       {/* <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-lg-6">
                         <div><img src={post.imageLocation} className="post-details-image" /></div>
@@ -47,7 +49,7 @@ useEffect(() => {
                     </div>
                 </div>
                
-            </div>
+            </div> */}
 </>
     );
 };

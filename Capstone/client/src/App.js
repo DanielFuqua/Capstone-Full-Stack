@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { UserProfileProvider } from "./providers/UserProfileProvider";
 import ApplicationViews from "./components/ApplicationViews";
 import { PoseProvider } from './providers/PoseProvider';
+import { InstructionProvider } from './providers/InstructionProvider';
 
 
 function App() {
@@ -11,7 +12,9 @@ function App() {
     <Router>
       <UserProfileProvider>
         <PoseProvider>
-          <ApplicationViews />
+          <InstructionProvider>
+            <ApplicationViews />
+          </InstructionProvider>
         </PoseProvider>
       </UserProfileProvider>
     </Router>
