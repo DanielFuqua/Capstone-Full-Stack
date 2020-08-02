@@ -4,6 +4,7 @@ import { PoseContext } from "../providers/PoseProvider";
 import { InstructionContext } from "../providers/InstructionProvider";
 import { BenefitContext } from "../providers/BenefitProvider";
 import { NoteContext } from "../providers/NoteProvider";
+import { CommentContext } from "../providers/CommentProvider";
 
 const PoseDetails = () => {
 
@@ -13,6 +14,7 @@ const PoseDetails = () => {
     const { instructions, getInstructionsByPoseId } = useContext(InstructionContext);
     const { benefits, getBenefitsByPoseId } = useContext(BenefitContext);
     const { notes, getNotesByPoseId } = useContext(NoteContext);
+    const { comments, getCommentsByPoseId } = useContext(CommentContext);
 
 
     useEffect(() => {
@@ -22,6 +24,7 @@ const PoseDetails = () => {
         getInstructionsByPoseId(parseInt(id));
         getBenefitsByPoseId(parseInt(id));
         getNotesByPoseId(parseInt(id));
+        getCommentsByPoseId(parseInt(id));
     }, []);
 
 
@@ -46,6 +49,16 @@ const PoseDetails = () => {
                 <div>
                     <h2>Notes:</h2>
                     {notes.map((note) => <p>{note.content}</p>)}
+                </div>
+
+                <div>
+                    <h2>Comments:</h2>
+                    {comments.map((com) =>
+                        <div>
+                            <p>{com.userProfile.displayName}</p>
+                            <p>{com.content}</p>
+                            <p>{com.createDateTime}</p>
+                        </div>)}
                 </div>
 
             </div>

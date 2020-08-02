@@ -7,6 +7,7 @@ import { PoseProvider } from './providers/PoseProvider';
 import { InstructionProvider } from './providers/InstructionProvider';
 import { BenefitProvider } from './providers/BenefitProvider';
 import { NoteProvider } from './providers/NoteProvider';
+import { CommentProvider } from './providers/CommentProvider';
 
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
           <InstructionProvider>
             <BenefitProvider>
               <NoteProvider>
-                <ApplicationViews />
+                <CommentProvider>
+                  <ApplicationViews />
+                </CommentProvider>
               </NoteProvider>
             </BenefitProvider>
           </InstructionProvider>
