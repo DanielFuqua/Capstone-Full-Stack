@@ -5,6 +5,7 @@ import { InstructionContext } from "../providers/InstructionProvider";
 import { BenefitContext } from "../providers/BenefitProvider";
 import { NoteContext } from "../providers/NoteProvider";
 import { CommentContext } from "../providers/CommentProvider";
+import { ListGroup, ListGroupItem } from "reactstrap";
 
 const PoseDetails = () => {
 
@@ -38,7 +39,10 @@ const PoseDetails = () => {
                 </div>
                 <div>
                     <h2>Instructions:</h2>
-                    {instructions.map((inst) => <p>{inst.content}</p>)}
+                    <ol>
+                        {instructions.map((inst) => <li>{inst.content}</li>)}
+                    </ol>
+
                 </div>
 
                 <div>
@@ -53,12 +57,17 @@ const PoseDetails = () => {
 
                 <div>
                     <h2>Comments:</h2>
-                    {comments.map((com) =>
-                        <div>
-                            <p>{com.userProfile.displayName}</p>
-                            <p>{com.content}</p>
-                            <p>{com.createDateTime}</p>
-                        </div>)}
+                    <ListGroup>
+                        {comments.map((com) =>
+                            <ListGroupItem>
+                                <div>
+                                    <p>{com.userProfile.displayName}</p>
+                                    <p>{com.content}</p>
+                                    <p>{com.createDateTime}</p>
+                                </div>
+                            </ListGroupItem>
+                        )}
+                    </ListGroup>
                 </div>
 
             </div>
