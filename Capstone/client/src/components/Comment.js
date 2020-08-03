@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 const Comment = ({ com }) => {
 
     const { userProfile } = useContext(UserProfileContext);
-    const { updateComment } = useContext(CommentContext);
+    const { updateComment, deleteComment, getCommentsByPoseId } = useContext(CommentContext);
     const theUserProfile = JSON.parse(userProfile);
     const [comment, setComment] = useState();
     const { id } = useParams();
@@ -18,8 +18,15 @@ const Comment = ({ com }) => {
 
     const [editModal, setEditModal] = useState(false);
 
+    const [deleteModal, setDeleteModal] = useState(false);
+
+
     const toggleEdit = () => {
         setEditModal(!editModal);
+    };
+
+    const toggleDelete = () => {
+        setDeleteModal(!deleteModal);
     };
 
     const reconstructComment = () => {
@@ -28,7 +35,7 @@ const Comment = ({ com }) => {
             poseId: parseInt(id),
             content: comment,
             createDateTime: com.createDateTime
-        })
+        }).then(() => getCommentsByPoseId(parseInt(id)))
     };
 
     return (
@@ -41,56 +48,55 @@ const Comment = ({ com }) => {
                     <Button onClick={toggleEdit}>Edit</Button>
                 )}
                 {com.userProfileId === theUserProfile.id && (
-                    <Button>Delete</Button>
+                    <Button onClick={toggleDelete}>Delete</Button>
                 )}
             </div>
 
             <Modal isOpen={editModal} toggle={toggleEdit}>
                 <ModalBody>
-                    
-                        <Form>
-                            <FormGroup>
-                                <Label for="exampleText">Make a change to your comment:</Label>
-                                <Input
-                                    type="textarea"
-                                    name="text"
-                                    id="exampleText"
-                                    defaultValue={com.content}
-                                    onChange={handleControlledInputChange} />
-                            </FormGroup>
-                        </Form>
-                        <Button
-                            type="button"
-                            className="btn btn-info publicMessageButton"
-                            onClick={() => {
-                                reconstructComment();
-                                setComment("");
-                                toggleEdit();
-                            }}
-                        >Submit</Button>
-                
+
+                    <Form>
+                        <FormGroup>
+                            <Label for="exampleText">Make a change to your comment:</Label>
+                            <Input
+                                type="textarea"
+                                name="text"
+                                id="exampleText"
+                                defaultValue={com.content}
+                                onChange={handleControlledInputChange} />
+                        </FormGroup>
+                    </Form>
+                    <Button
+                        type="button"
+                        className="btn btn-info publicMessageButton"
+                        onClick={() => {
+                            reconstructComment();
+                            setComment("");
+                            toggleEdit();
+                        }}
+                    >Submit</Button>
+
                 </ModalBody>
             </Modal>
 
-            {/* <Modal isOpen={deleteModal} toggle={toggleDelete}>
+            <Modal isOpen={deleteModal} toggle={toggleDelete}>
                 <ModalBody>
-                        <Form>
-                            <FormGroup>
-                                <Label for="exampleText">Are you sure you want to delete this comment:</Label>
-                                
-                            </FormGroup>
-                        </Form>
-                        <Button
-                            type="button"
-                            className="btn btn-info publicMessageButton"
-                            onClick={() => {
-                                delete
-                                toggleDelete();
-                            }}
-                        >Delete</Button>
-                
+                    <Form>
+                        <FormGroup>
+                            <Label for="exampleText">Would you like to delete this comment?</Label>
+                        </FormGroup>
+                    </Form>
+                    <Button
+                        type="button"
+                        className="btn btn-info deleteButton"
+                        onClick={() => {
+                            deleteComment(com.id, parseInt(id));
+                            toggleDelete();
+                        }}
+                    >Delete</Button>
+
                 </ModalBody>
-            </Modal> */}
+            </Modal>
 
         </>
     )

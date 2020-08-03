@@ -23,7 +23,7 @@ const Comments = () => {
             poseId: parseInt(id),
             content: comment,
             createDateTime: new Date()
-        })
+        }).then(() => getCommentsByPoseId(parseInt(id)))
     };
 
     return (
