@@ -18,8 +18,34 @@ export const CommentProvider = (props) => {
                 },
             }).then((res) => res.json()).then(setComments));
 
+    const addComment = (comment) =>
+        getToken().then((token) =>
+            fetch('/api/comment', {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(comment),
+            }).then((resp) => {
+                return resp.json();
+            })
+        );
+
+        const updateComment = (comment) =>
+        getToken().then((token) =>
+          fetch(`/api/comment/${comment.id}`, {
+            method: "PUT",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(comment),
+          })
+        );
+
     return (
-        <CommentContext.Provider value={{ comments, getCommentsByPoseId }}>
+        <CommentContext.Provider value={{ comments, getCommentsByPoseId, addComment, updateComment }}>
             {props.children}
         </CommentContext.Provider>
     );

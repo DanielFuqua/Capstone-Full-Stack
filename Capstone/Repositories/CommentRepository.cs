@@ -21,7 +21,20 @@ namespace Tabloid.Repositories
             return _context.Comment.Where(c => c.PoseId == poseId)
                                         .Include(c => c.Pose)
                                         .Include(c => c.UserProfile)
+                                        .OrderByDescending(c => c.CreateDateTime)
                                         .ToList();
+        }
+
+        public void Add(Comment comment)
+        {
+            _context.Add(comment);
+            _context.SaveChanges();
+        }
+
+        public void Update(Comment comment)
+        {
+            _context.Entry(comment).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
 

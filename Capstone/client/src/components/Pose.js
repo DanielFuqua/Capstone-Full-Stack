@@ -6,8 +6,6 @@ import { useHistory } from "react-router-dom";
 const Pose = ({ pose }) => {
     const history = useHistory();
 
-
-
     return (
         <Card onClick={() => history.push(`/pose/${pose.id}`)} className="text-center">
             <CardImg src={pose.imageLocation} alt={pose.nameEnglish} />

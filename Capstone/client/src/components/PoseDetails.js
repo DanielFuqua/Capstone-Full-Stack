@@ -3,9 +3,7 @@ import { useParams } from "react-router-dom";
 import { PoseContext } from "../providers/PoseProvider";
 import { InstructionContext } from "../providers/InstructionProvider";
 import { BenefitContext } from "../providers/BenefitProvider";
-import { NoteContext } from "../providers/NoteProvider";
-import { CommentContext } from "../providers/CommentProvider";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { ListGroup, ListGroupItem, CardTitle, CardSubtitle, Card, CardImg, CardBody, CardText, Button } from "reactstrap";
 
 const PoseDetails = () => {
 
@@ -14,9 +12,6 @@ const PoseDetails = () => {
     const { getPoseById } = useContext(PoseContext);
     const { instructions, getInstructionsByPoseId } = useContext(InstructionContext);
     const { benefits, getBenefitsByPoseId } = useContext(BenefitContext);
-    const { notes, getNotesByPoseId } = useContext(NoteContext);
-    const { comments, getCommentsByPoseId } = useContext(CommentContext);
-
 
     useEffect(() => {
         getPoseById(parseInt(id)).then((pose) => {
@@ -24,74 +19,35 @@ const PoseDetails = () => {
         });
         getInstructionsByPoseId(parseInt(id));
         getBenefitsByPoseId(parseInt(id));
-        getNotesByPoseId(parseInt(id));
-        getCommentsByPoseId(parseInt(id));
     }, []);
 
 
     return (
         <>
-            <div>
-                <p>{pose.nameEnglish}</p>
-                <p>{pose.nameSanskrit}</p>
                 <div>
-                    <img src={pose.imageLocation} />
+                <Card sm="4">
+                    <CardTitle className="text-center"><h1>{pose.nameEnglish}</h1></CardTitle>
+                    <CardSubtitle className="text-center"><h2>{pose.nameSanskrit}</h2></CardSubtitle>
+                    <CardImg src={pose.imageLocation} alt={pose.nameEnglish} />
+                    <CardBody>
+                        <div>
+                            <h2 className="text-center">Instructions:</h2>
+                            <ol>
+                                {instructions.map((inst) => <li>{inst.content}</li>)}
+                            </ol>
+
+                        </div>
+
+                        <div>
+                            <h2 className="text-center">Benefits:</h2>
+                            <ul>
+                                {benefits.map((ben) => <li>{ben.content}</li>)}
+                            </ul>
+                           
+                        </div>
+                    </CardBody>
+                </Card>
                 </div>
-                <div>
-                    <h2>Instructions:</h2>
-                    <ol>
-                        {instructions.map((inst) => <li>{inst.content}</li>)}
-                    </ol>
-
-                </div>
-
-                <div>
-                    <h2>Benefits:</h2>
-                    {benefits.map((ben) => <p>{ben.content}</p>)}
-                </div>
-
-                <div>
-                    <h2>Notes:</h2>
-                    {notes.map((note) => <p>{note.content}</p>)}
-                </div>
-
-                <div>
-                    <h2>Comments:</h2>
-                    <ListGroup>
-                        {comments.map((com) =>
-                            <ListGroupItem>
-                                <div>
-                                    <p>{com.userProfile.displayName}</p>
-                                    <p>{com.content}</p>
-                                    <p>{com.createDateTime}</p>
-                                </div>
-                            </ListGroupItem>
-                        )}
-                    </ListGroup>
-                </div>
-
-            </div>
-
-
-
-            {/* <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-sm-12 col-lg-6">
-                        <div><img src={post.imageLocation} className="post-details-image" /></div>
-                        <p className="post-details-title"><b>Post Title: </b> {post.title}</p>
-                        <p className="post-details-postedBy"><b>Posted By: </b> {post.userProfile.displayName}</p>
-                        <pre className="post-details-content">{post.content}</pre>
-                        <p className="post-details-publishDate"><b>Publish Date: </b> {post.publishDateTime.substr(0, 10)}</p>
-                        <Button onClick={() => history.push(`/newcomment/${post.id}`)} >Add Comment</Button>
-                <Button onClick={toggleEdit}>Edit</Button>
-                <Button onClick={toggleDelete}>Delete Post</Button>
-                <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-            View Comments
-          </Link>
-                    </div>
-                </div>
-               
-            </div> */}
         </>
     );
 };
