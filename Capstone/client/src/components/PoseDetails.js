@@ -24,7 +24,7 @@ const PoseDetails = () => {
 
     return (
         <>
-                <div>
+                <div className="pose_details_container">
                 <Card sm="4">
                     <CardTitle className="text-center"><h1>{pose.nameEnglish}</h1></CardTitle>
                     <CardSubtitle className="text-center"><h2>{pose.nameSanskrit}</h2></CardSubtitle>

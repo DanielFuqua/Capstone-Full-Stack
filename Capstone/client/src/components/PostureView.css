@@ -1,3 +1,19 @@
 .posture_container {
     display: flex;
+    justify-content: space-around;
 }
+
+.notes_container {
+    flex-basis: 20%;
+}
+
+.comments_container {
+    flex-basis: 20%;
+
+}
+
+.pose_details_container {
+    flex-basis: 50%;
+
+}
+

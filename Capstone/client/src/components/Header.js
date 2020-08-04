@@ -14,6 +14,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { UserProfileContext } from "../providers/UserProfileProvider";
+import "../App.css";
 
 export default function Header() {
   const { isLoggedIn, logout } = useContext(UserProfileContext);
@@ -24,7 +25,7 @@ export default function Header() {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">
+        <NavbarBrand className="nav_brand" tag={RRNavLink} to="/">
           Asana 26
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />

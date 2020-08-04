@@ -24,7 +24,34 @@ namespace Tabloid.Repositories
                                         .ToList();
         }
 
-      
+        public void Add(Note note)
+        {
+            _context.Add(note);
+            _context.SaveChanges();
+        }
+
+        public void Update(Note note)
+        {
+            _context.Entry(note).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var note = GetById(id);
+
+
+            _context.Note.Remove(note);
+            _context.SaveChanges();
+        }
+
+        public Note GetById(int id)
+        {
+            return _context.Note
+                .FirstOrDefault(n => n.Id == id);
+        }
+
+
 
 
 

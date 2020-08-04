@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { PoseContext } from "../providers/PoseProvider";
 import Pose from "./Pose";
 import { Container, Row, Col } from 'reactstrap';
+import "./PoseList.css";
+
 
 
 const PoseList = () => {
@@ -14,7 +16,7 @@ const PoseList = () => {
 
     return (
 
-            <Container>
+            <Container className="poseList_container">
                 <Row>
                     {poses.map((pose) => (
                         <Col sm="4">

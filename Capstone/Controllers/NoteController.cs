@@ -46,7 +46,38 @@ namespace Tabloid.Controllers
             return Ok(notes);
         }
 
-        
+        [HttpPost]
+        public IActionResult Post(Note note)
+        {
+            var currentUser = GetCurrentUserProfile();
+            note.UserProfileId = currentUser.Id;
+
+            _noteRepository.Add(note);
+            return CreatedAtAction("Get", new { id = note.Id }, note);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Note note)
+        {
+            if (id != note.Id)
+            {
+                return BadRequest();
+            }
+            var currentUser = GetCurrentUserProfile();
+            note.UserProfileId = currentUser.Id;
+
+            _noteRepository.Update(note);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _noteRepository.Delete(id);
+            return NoContent();
+        }
+
+
 
     }
 
