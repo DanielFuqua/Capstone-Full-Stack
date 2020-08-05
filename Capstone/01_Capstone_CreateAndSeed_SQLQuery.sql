@@ -142,37 +142,44 @@ VALUES
   (10, '8IqX56dMAXhbCAxaLHx2ewVEyao1', 'yinYogaAdam', 'yin@gmail.com', 1);
 SET IDENTITY_INSERT [UserProfile] OFF
 
+SET IDENTITY_INSERT [Note] ON
+INSERT INTO [Note]
+  ([Id], [PoseId], [UserProfileId], [Content], [CreateDateTime])
+VALUES
+  (1, 1, 1, 'I love this breathing exercise.', '2020-07-31 20:30:30');
+SET IDENTITY_INSERT [Note] OFF
+
 
 SET IDENTITY_INSERT [Pose] ON
 INSERT INTO [Pose]
   ([Id], [NameEnglish], [NameSanskrit], [ImageLocation], [Drishti])
 VALUES
-  (1, 'Standing Deep Breathing', 'Pranayama', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (2, 'Half Moon Pose with Hands-to-Feet', 'Ardha Chandrasana with Padahastasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (3, 'Awkward Pose', 'Utkatasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null), 
-  (4, 'Eagle Pose', 'Garudasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (5, 'Standing Knee-to-Head', 'Dandayamana Janushirasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (6, 'Standing Bow Pose', 'Dandayamana Danyurasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (7, 'Balancing Stick Pose', 'Tuladandasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (8, 'Standing Separtate-Leg Stretching Pose', 'Dandayamana Bibhaktapada Paschimottanasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (9, 'Triangle Pose', 'Trikanasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (10, 'Standing Separate Leg Head-to-Knee', 'Dandayamana Bibhaktapada Janushirasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (11, 'Tree', 'Tadasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (12, 'Toe Stand', 'Padangustasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (13, 'Corpse Pose', 'Savasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (14, 'Wind Removing Pose', 'Pavanamuktasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (15, 'Sit-Up', null, 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (16, 'Cobra', 'Bhujangasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (17, 'Locust', 'Salabhasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null), 
-  (18, 'Full Locust', 'Poorna Salabhasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (19, 'Floor Bow Pose', 'Dhanurasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (20, 'Fixed Firm', 'Supta Vajrasana','https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (21, 'Half Tortoise', 'Ardha Kurmasana',' https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (22, 'Camel', 'Ustrasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (23, 'Rabbit', 'Sasangasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (24, 'Head-to-Knee With Stretching', ' Janushirasana with Paschimottanasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (25, 'Spine Twisting', 'Ardha Matsyendrasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null),
-  (26, 'Blowing In Firm', 'Kapalbhati-in-Vajrasana', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/french-bulldog-in-yoga-pose-warrior-3-royalty-free-image-525986255-1536177884.jpg', null);
+  (1, 'Standing Deep Breathing', 'Pranayama', '/Standing_Deep_Breathing.jpg', null),
+  (2, 'Half Moon Pose with Hands-to-Feet', 'Ardha Chandrasana with Padahastasana', '/Half_Moon_Pose_with_Hands_to_Feet.jpg', null),
+  (3, 'Awkward Pose', 'Utkatasana', '/Awkward_Pose.jpg', null), 
+  (4, 'Eagle Pose', 'Garudasana', '/Eagle_Pose.jpg', null),
+  (5, 'Standing Head-to-Knee', 'Dandayamana Janushirasana', '/Standing_Head_to_Knee.jpg', null),
+  (6, 'Standing Bow Pose', 'Dandayamana Danyurasana', '/Standing_Bow_Pose.jpg', null),
+  (7, 'Balancing Stick Pose', 'Tuladandasana', '/Balancing_Stick_Pose.jpg', null),
+  (8, 'Standing Separtate-Leg Stretching Pose', 'Dandayamana Bibhaktapada Paschimottanasana', '/Standing_Separtate_Leg_Stretching_Pose.jpg', null),
+  (9, 'Triangle Pose', 'Trikanasana', '/Triangle_Pose.jpg', null),
+  (10, 'Standing Separate Leg Head-to-Knee', 'Dandayamana Bibhaktapada Janushirasana', '/Standing_Separate_Leg_Head_to_Knee.jpg', null),
+  (11, 'Tree', 'Tadasana', '/Tree.jpg', null),
+  (12, 'Toe Stand', 'Padangustasana', '/Toe_Stand.jpg', null),
+  (13, 'Corpse Pose', 'Savasana', '/Corpse_Pose.jpg', null),
+  (14, 'Wind Removing Pose', 'Pavanamuktasana', '/Wind_Removing_Pose.jpg', null),
+  (15, 'Sit-Up', null, '/Sit_Up.jpg', null),
+  (16, 'Cobra', 'Bhujangasana', '/Cobra.jpg', null),
+  (17, 'Locust', 'Salabhasana', '/Locust.jpg', null), 
+  (18, 'Full Locust', 'Poorna Salabhasana', '/Full_Locust.jpg', null),
+  (19, 'Floor Bow Pose', 'Dhanurasana', '/Floor_Bow_Pose.jpg', null),
+  (20, 'Fixed Firm', 'Supta Vajrasana','/Fixed_Firm.jpg', null),
+  (21, 'Half Tortoise', 'Ardha Kurmasana','/Half_Tortoise.jpg', null),
+  (22, 'Camel', 'Ustrasana', '/Camel.jpg', null),
+  (23, 'Rabbit', 'Sasangasana', '/Rabbit.jpg', null),
+  (24, 'Head-to-Knee With Stretching', ' Janushirasana with Paschimottanasana', '/Head_To_Knee_With_Stretching.jpg', null),
+  (25, 'Spine Twisting', 'Ardha Matsyendrasana', '/Spine_Twisting.jpg', null),
+  (26, 'Blowing In Firm', 'Kapalbhati-in-Vajrasana', '/Blowing_In_Firm.jpg', null);
 SET IDENTITY_INSERT [Pose] OFF
 
 
@@ -503,3 +510,83 @@ VALUES
   (178, 26, 'At the same time, make sure that your belly is relaxed and not tensed'),
   (179, 26, 'During the second set of this pose, increase your breathing speed');
 SET IDENTITY_INSERT [Instruction] OFF
+
+
+SET IDENTITY_INSERT [Note] ON
+INSERT INTO [Note]
+  ([Id], [PoseId], [UserProfileId], [Content], [CreateDateTime])
+VALUES
+  (1, 1, 1, 'I love this breathing exercise.', '2020-07-31 20:30:30'),
+  (2, 1, 1, 'Its hard to get my elbows to touch.', '2020-07-27 01:30:30'),
+  (3, 1, 1, 'This exercise warms me up perfectly.', '2020-07-30 20:00:30'),
+  (4, 1, 1, 'Gets me seating!', '2020-07-31 10:30:30');
+SET IDENTITY_INSERT [Note] OFF
+
+SET IDENTITY_INSERT [Comment] ON
+INSERT INTO [Comment]
+  ([Id], [PoseId], [UserProfileId], [Content], [CreateDateTime])
+VALUES
+  (1, 1, 8, 'Does anybody else struggle to get there elbows up very high? I just feel so awkward doing this one.', '2020-006-06 20:30:30'),
+  (2, 1, 1, 'Totally! Its not as easy as it looks.', '2020-07-27 01:30:30'),
+  (3, 1, 5, 'I love this!.', '2020-07-30 20:00:30'),
+  (4, 2, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (5, 2, 6, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (6, 2, 3, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (7, 2, 8, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (8, 3, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (9, 3, 5, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (10, 3, 8, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (11, 4, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (12, 10, 10, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (13, 11, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (14, 12, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (15, 13, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (16, 14, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (17, 15, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (18, 16, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (19, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (20, 18, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (21, 19, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (22, 20, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (23, 21, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (24, 22, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (25, 23, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (26, 24, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (27, 25, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (28, 26, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (29, 5, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (30, 6, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (31, 7, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (32, 8, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (33, 9, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (34, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (35, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (36, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (37, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (38, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (39, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (40, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (41, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (42, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (43, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (44, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (45, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (46, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (47, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (48, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (49, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (50, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (51, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (52, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (53, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (54, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (55, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (56, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (57, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (58, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (59, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (60, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (61, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (62, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30'),
+  (63, 17, 1, 'This is just starter comment data...', '2020-07-31 10:30:30');
+SET IDENTITY_INSERT [Comment] OFF

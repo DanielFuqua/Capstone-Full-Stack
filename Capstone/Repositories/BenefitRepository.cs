@@ -7,27 +7,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Capstone.Repositories
 {
-    public class PoseRepository
+    public class BenefitRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public PoseRepository(ApplicationDbContext context)
+        public BenefitRepository(ApplicationDbContext context)
         {
             _context = context;
         }
-        public List<Pose> GetAll()
-        {
-            var All = _context.Pose.ToList();
-            return All;
-        }
 
-        public Pose GetById(int id)
+        public List<Benefit> GetByPoseId(int id)
         {
-            return _context.Pose.FirstOrDefault(p => p.Id == id);
+            return _context.Benefit.Where(b => b.PoseId == id)
+                                        .Include(b => b.Pose)
+                                        .ToList();
         }
 
 
-        
+
 
     }
 }

@@ -1,5 +1,8 @@
+.poseList_container {
+    display: flex;
+    justify-content: space-around;
+}
 
-.poses-image {
-    width: 200px;
-
+.pose_card:hover {
+    cursor: pointer;
 }

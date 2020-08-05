@@ -1,0 +1,40 @@
+.note_card {
+    margin: 5px 5px 5px 5px;
+    background-color: rgb(253, 228, 86);
+}
+
+.note_card_buttons, .comment_card_buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.fa-edit {
+    color: rgb(4, 211, 211);
+}
+
+.fa-edit:hover {
+    cursor: pointer;
+    color: darkmagenta;
+}
+
+.fa-trash-alt {
+    color: crimson;
+    cursor: pointer;
+}
+
+.fa-trash-alt:hover {
+    color: darkred;
+}
+
+.fa-plus {
+    color: rgb(173, 78, 250);
+}
+
+.fa-plus:hover {
+    color: rgb(3, 247, 3)
+}
+
+.notes_container_notes {
+margin-top: 20px;
+}
+

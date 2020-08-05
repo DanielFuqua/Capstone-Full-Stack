@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
+
+
 .App {
   text-align: center;
 }
@@ -24,6 +27,7 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
@@ -36,3 +40,13 @@
     transform: rotate(360deg);
   }
 }
+
+.nav_brand, h1, h2, nav,.note_card_date, .comment_card_displayName, .comment_card_date {
+  font-family: 'Tangerine', cursive;
+}
+
+
+.fa-plus:hover {
+  cursor: pointer;
+}
+

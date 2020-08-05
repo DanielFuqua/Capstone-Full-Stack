@@ -4,6 +4,7 @@ import { UserProfileContext } from "../providers/UserProfileProvider";
 import Login from "./Login";
 import Register from "./Register";
 import PoseList from "./PoseList";
+import PostureView from "./PostureView";
 
 
 export default function ApplicationViews() {
@@ -16,8 +17,8 @@ export default function ApplicationViews() {
           {isLoggedIn ? <PoseList/> : <Redirect to="/login" />}
         </Route>
 
-        <Route path={`/pose/:id`}>
-          {isLoggedIn ? <PoseList/> : <Redirect to="/login" />}
+        <Route path={`/pose/:id`} exact>
+          {isLoggedIn ? <PostureView/> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
