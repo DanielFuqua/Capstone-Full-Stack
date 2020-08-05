@@ -27,6 +27,7 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
@@ -40,9 +41,10 @@
   }
 }
 
-.nav_brand, nav, h1, h2, .note_card_date, .note_cardText{
+.nav_brand, h1, h2, nav,.note_card_date, .comment_card_displayName, .comment_card_date {
   font-family: 'Tangerine', cursive;
 }
+
 
 .fa-plus:hover {
   cursor: pointer;

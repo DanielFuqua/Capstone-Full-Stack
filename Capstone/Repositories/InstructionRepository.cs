@@ -5,7 +5,7 @@ using Capstone.Data;
 using Capstone.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Tabloid.Repositories
+namespace Capstone.Repositories
 {
     public class InstructionRepository
     {

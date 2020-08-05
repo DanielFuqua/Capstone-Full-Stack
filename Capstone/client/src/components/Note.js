@@ -41,8 +41,10 @@ const Note = ({ note }) => {
             <Card className="note_card" body>
                 <CardTitle className="note_card_date">{new Date(note.createDateTime).toLocaleDateString('en-us')}</CardTitle>
                 <CardText className="note_cardText">{note.content}</CardText>
-                <Button onClick={toggleEdit}>Edit</Button>
-                <Button onClick={toggleDelete}>Delete</Button>
+                <div className="note_card_buttons">
+                    <i class="far fa-edit" onClick={toggleEdit}></i>
+                    <i class="far fa-trash-alt" onClick={toggleDelete}></i>
+                </div>
             </Card>
 
             <Modal isOpen={editModal} toggle={toggleEdit}>

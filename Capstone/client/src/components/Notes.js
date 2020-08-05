@@ -5,6 +5,7 @@ import Note from "./Note";
 import { Button, Modal, ModalBody, Form, Label, Input, FormGroup } from "reactstrap";
 import "../App.css";
 import "./Notes.css";
+import UserPoseDifficulty from "./UserPoseDifficulty";
 
 
 
@@ -40,11 +41,17 @@ const Notes = () => {
     return (
         <>
             <div className="notes_container">
-                <h2>Notes:</h2>
-                <i className="fa fa-plus" onClick={toggleAdd}></i>
-                {notes.map((note) =>
-                    <Note key={note.id} note={note} />
-                )}
+                <div>
+                      <UserPoseDifficulty/>
+                </div>
+              
+                <div className="notes_container_notes">
+                    <h2>Personal Notes:</h2>
+                    <i className="fa fa-plus" onClick={toggleAdd}></i>
+                    {notes.map((note) =>
+                        <Note key={note.id} note={note} />
+                    )}
+                </div>
             </div>
 
             <Modal isOpen={addNoteModal} toggle={toggleAdd}>

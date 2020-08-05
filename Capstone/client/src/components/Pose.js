@@ -7,7 +7,7 @@ const Pose = ({ pose }) => {
     const history = useHistory();
 
     return (
-        <Card onClick={() => history.push(`/pose/${pose.id}`)} className="text-center">
+        <Card onClick={() => history.push(`/pose/${pose.id}`)} className="text-center pose_card">
             <CardImg src={pose.imageLocation} alt={pose.nameEnglish} />
             <CardBody>
                 <CardTitle>{pose.nameEnglish}</CardTitle>

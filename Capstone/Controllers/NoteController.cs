@@ -5,9 +5,8 @@ using Capstone.Models;
 using Capstone.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Tabloid.Repositories;
 
-namespace Tabloid.Controllers
+namespace Capstone.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

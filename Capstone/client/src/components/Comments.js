@@ -23,7 +23,7 @@ const Comments = () => {
             poseId: parseInt(id),
             content: comment,
             createDateTime: new Date()
-        }).then(() => getCommentsByPoseId(parseInt(id)))
+        }).then(() => {setComment(""); getCommentsByPoseId(parseInt(id))})
     };
 
     return (
@@ -37,6 +37,7 @@ const Comments = () => {
                             type="textarea"
                             name="text"
                             id="exampleText"
+                            value={comment}
                             placeholder="GOOD VIBES ONLY!"
                             onChange={handleControlledInputChange} />
                     </FormGroup>

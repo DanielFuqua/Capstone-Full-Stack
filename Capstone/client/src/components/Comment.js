@@ -41,15 +41,18 @@ const Comment = ({ com }) => {
     return (
         <>
             <div>
-                <p>{com.userProfile.displayName}</p>
+                <p className="comment_card_displayName">{com.userProfile.displayName}</p>
                 <p>{com.content}</p>
-                <p>{new Date(com.createDateTime).toLocaleDateString('en-us')}</p>
-                {com.userProfileId === theUserProfile.id && (
-                    <Button onClick={toggleEdit}>Edit</Button>
-                )}
-                {com.userProfileId === theUserProfile.id && (
-                    <Button onClick={toggleDelete}>Delete</Button>
-                )}
+                <p  className="comment_card_date">{new Date(com.createDateTime).toLocaleDateString('en-us')}</p>
+                <div className="comment_card_buttons">
+                    {com.userProfileId === theUserProfile.id && (
+                        <i class="far fa-edit" onClick={toggleEdit}></i>
+                    )}
+                    {com.userProfileId === theUserProfile.id && (
+                        <i class="far fa-trash-alt" onClick={toggleDelete}></i>
+                    )}
+                </div>
+
             </div>
 
             <Modal isOpen={editModal} toggle={toggleEdit}>
@@ -90,7 +93,7 @@ const Comment = ({ com }) => {
                         type="button"
                         className="btn btn-info deleteButton"
                         onClick={() => {
-                            deleteComment(com.id, parseInt(id));
+                            deleteComment(com.id, parseInt(id)).then(() => getCommentsByPoseId(parseInt(id)));
                             toggleDelete();
                         }}
                     >Delete</Button>

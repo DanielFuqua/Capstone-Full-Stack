@@ -9,6 +9,7 @@ import { InstructionProvider } from './providers/InstructionProvider';
 import { BenefitProvider } from './providers/BenefitProvider';
 import { NoteProvider } from './providers/NoteProvider';
 import { CommentProvider } from './providers/CommentProvider';
+import { UserPoseDifficultyProvider } from './providers/UserPoseDifficultyProvider';
 
 
 function App() {
@@ -20,8 +21,10 @@ function App() {
             <BenefitProvider>
               <NoteProvider>
                 <CommentProvider>
-                  <Header/>
-                  <ApplicationViews />
+                  <UserPoseDifficultyProvider>
+                    <Header />
+                    <ApplicationViews />
+                  </UserPoseDifficultyProvider>
                 </CommentProvider>
               </NoteProvider>
             </BenefitProvider>
